@@ -9,76 +9,100 @@
         background-color: #fffdf7;
         color: #3e2f21;
         padding: 40px;
-        max-width: 700px;
+        max-width: 800px;
         margin: auto;
-      }
-      h1 {
-        font-size: 2.5em;
-        margin-bottom: 30px;
         text-align: center;
       }
+
+      h1 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+        color: #6f4e37;
+      }
+
       h2 {
         margin-top: 40px;
-        color: #6f4e37;
         border-bottom: 2px solid #eee;
         padding-bottom: 5px;
+        color: #3e2f21;
       }
-      .item {
-        margin-bottom: 16px;
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
       }
+
+      th, td {
+        border-bottom: 1px solid #ddd;
+        padding: 10px;
+        font-size: 1em;
+      }
+
+      th {
+        background-color: #f4e3d0;
+      }
+
+      tr:hover {
+        background-color: #f7f7f7;
+      }
+
       .name {
-        font-weight: bold;
-      }
-      .variant {
-        margin-left: 15px;
+        text-align: left;
       }
     </style>
   </head>
   <body>
     <h1>Menu TerraSafaria</h1>
 
+    <!-- Coffee tanpa varian -->
     <h2>Coffee</h2>
-    <div class="item"><span class="name">Single Espresso</span> — 18k</div>
-    <div class="item"><span class="name">Double Espresso</span> — 21k</div>
-    <div class="item"><span class="name">Americano</span>
-      <span class="variant">(Hot 19k, Ice 20k)</span></div>
-    <div class="item"><span class="name">Terrariple Coffee</span> — 31k</div>
-    <div class="item"><span class="name">Sangeria</span> — 23k</div>
-    <div class="item"><span class="name">Cappuccino</span>
-      <span class="variant">(Hot 28k, Ice 30k)</span></div>
-    <div class="item"><span class="name">Caffe Latte</span>
-      <span class="variant">(Hot 28k, Ice 30k)</span></div>
-    <div class="item"><span class="name">Terra Palm Sugar</span>
-      <span class="variant">(Hot 23k, Ice 25k)</span></div>
-    <div class="item"><span class="name">Caramel Machiato</span>
-      <span class="variant">(Hot 30k, Ice 32k)</span></div>
-    <div class="item"><span class="name">Huzelnut Coffee</span>
-      <span class="variant">(Hot 29k, Ice 31k)</span></div>
-    <div class="item"><span class="name">Rum Coffee</span>
-      <span class="variant">(Hot 29k, Ice 31k)</span></div>
-    <div class="item"><span class="name">Honey Americano</span>
-      <span class="variant">(Hot 23k, Ice 24k)</span></div>
-    <div class="item"><span class="name">Black Honey Latte</span> — 28k</div>
-    <div class="item"><span class="name">Black Orange</span> — 28k</div>
-    <div class="item"><span class="name">Butterscotch</span>
-      <span class="variant">(Hot 29k, Ice 31k)</span></div>
+    <table>
+      <tr><th class="name">Jenis Kopi</th><th>Harga</th></tr>
+      <tr><td class="name">Single Espresso</td><td>18k</td></tr>
+      <tr><td class="name">Black Honey Latte</td><td>28k</td></tr>
+      <tr><td class="name">Terrariple Coffee</td><td>31k</td></tr>
+      <tr><td class="name">Sangeria</td><td>23k</td></tr>
+      <tr><td class="name">Black Orange</td><td>28k</td></tr>
+      <tr><td class="name">Double Espresso</td><td>21k</td></tr>
+    </table>
 
+    <!-- Coffee dengan HOT & ICE -->
+    <h2>Coffee HOT / ICE</h2>
+    <table>
+      <tr><th class="name">Jenis Kopi</th><th>HOT</th><th>ICE</th></tr>
+      <tr><td class="name">Butterscotch</td><td>29k</td><td>31k</td></tr>
+      <tr><td class="name">Americano</td><td>19k</td><td>20k</td></tr>
+      <tr><td class="name">Cappuccino</td><td>28k</td><td>30k</td></tr>
+      <tr><td class="name">Caffe Latte</td><td>28k</td><td>30k</td></tr>
+      <tr><td class="name">Terra Palm Sugar</td><td>23k</td><td>25k</td></tr>
+      <tr><td class="name">Caramel Machiato</td><td>30k</td><td>32k</td></tr>
+      <tr><td class="name">Huzelnut Coffee</td><td>29k</td><td>31k</td></tr>
+      <tr><td class="name">Rum Coffee</td><td>29k</td><td>31k</td></tr>
+      <tr><td class="name">Honey Americano</td><td>23k</td><td>24k</td></tr>
+    </table>
+
+    <!-- Non-Coffee tanpa varian -->
     <h2>Non-Coffee</h2>
-    <div class="item"><span class="name">Matcha Latte</span>
-      <span class="variant">(Hot 30k, Ice 32k)</span></div>
-    <div class="item"><span class="name">Chocolate Latte</span>
-      <span class="variant">(Hot 23k, Ice 25k)</span></div>
-    <div class="item"><span class="name">Lychee Tea</span> — 23k</div>
-    <div class="item"><span class="name">Peach Tea</span> — 23k</div>
-    <div class="item"><span class="name">Lemon Tea</span>
-      <span class="variant">(Hot 15k, Ice 17k)</span></div>
-    <div class="item"><span class="name">Jasmine Tea</span>
-      <span class="variant">(Hot 15k, Ice 17k)</span></div>
-    <div class="item"><span class="name">Terra Tea</span>
-      <span class="variant">(Hot 8k, Ice 10k)</span></div>
-    <div class="item"><span class="name">Orange Milk Shake</span> — 28k</div>
-    <div class="item"><span class="name">Strawberry Milk Shake</span> — 28k</div>
-    <div class="item"><span class="name">Chocolate Milk Shake</span> — 28k</div>
-    <div class="item"><span class="name">Honey Lemon Soda</span> — 25k</div>
+    <table>
+      <tr><th class="name">Minuman</th><th>Harga</th></tr>
+      <tr><td class="name">Orange Milk Shake</td><td>28k</td></tr>
+      <tr><td class="name">Strawberry Milk Shake</td><td>28k</td></tr>
+      <tr><td class="name">Chocolate Milk Shake</td><td>28k</td></tr>
+      <tr><td class="name">Honey Lemon Soda</td><td>25k</td></tr>
+      <tr><td class="name">Lychee Tea</td><td>23k</td></tr>
+      <tr><td class="name">Peach Tea</td><td>23k</td></tr>
+    </table>
+
+    <!-- Non-Coffee HOT & ICE -->
+    <h2>Non-Coffee HOT / ICE</h2>
+    <table>
+      <tr><th class="name">Minuman</th><th>HOT</th><th>ICE</th></tr>
+      <tr><td class="name">Lemon Tea</td><td>15k</td><td>17k</td></tr>
+      <tr><td class="name">Jasmine Tea</td><td>15k</td><td>17k</td></tr>
+      <tr><td class="name">Matcha Latte</td><td>30k</td><td>32k</td></tr>
+      <tr><td class="name">Chocolate Latte</td><td>23k</td><td>25k</td></tr>
+      <tr><td class="name">Terra Tea</td><td>8k</td><td>10k</td></tr>
+    </table>
   </body>
 </html>
