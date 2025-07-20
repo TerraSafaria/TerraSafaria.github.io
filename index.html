@@ -1,83 +1,138 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>TerraSafaria Coffee</title>
-    <style>
-      body {
-        margin: 0;
-        font-family: 'Segoe UI', sans-serif;
-        background-color: #fdf8f2;
-        color: #2f2f2f;
-      }
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>TerraSafaria Coffee</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fdf8f2;
+      color: #2f2f2f;
+    }
 
-      .hero {
-        background-image: url('banner-web.jpg');
-        background-size: cover;
-        background-position: center;
-        height: 400px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        color: #ffffff;
-        text-shadow: 0 0 10px rgba(0,0,0,0.6);
-      }
+    .hero {
+      background-image: url('banner-web.jpg'); /* Pastikan file ini ada di repo */
+      background-size: cover;
+      background-position: center;
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #ffffff;
+      text-shadow: 0 0 10px rgba(0,0,0,0.6);
+    }
 
-      .hero h1 {
-        font-size: 3em;
-        margin: 0;
-      }
+    .hero h1 {
+      font-size: 3em;
+      margin: 0;
+    }
 
-      .hero p {
-        font-size: 1.2em;
-        margin-top: 10px;
-      }
+    .hero p {
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
 
-      .content {
-        text-align: center;
-        padding: 40px 20px;
-        max-width: 800px;
-        margin: auto;
-      }
+    .content {
+      text-align: center;
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
+      background-color: #E5D2B8; /* Warna elegan sesuai permintaan */
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
 
-      .quote {
-        font-style: italic;
-        color: #4b6046;
-        margin-top: 20px;
-        margin-bottom: 40px;
-      }
+    .quote {
+      font-style: italic;
+      color: #4b6046;
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
 
-      .menu-button {
-        display: inline-block;
-        padding: 14px 28px;
-        font-size: 1em;
-        background-color: #6f4a37;
-        color: white;
-        text-decoration: none;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-      }
+    .start-button {
+      display: inline-block;
+      padding: 14px 28px;
+      font-size: 1em;
+      background-color: #6f4a37;
+      color: white;
+      text-decoration: none;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
 
-      .menu-button:hover {
-        background-color: #59392d;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="hero">
-      <h1>TerraSafaria Coffee</h1>
-      <p>Rasa yang bernyawa, kopi yang bermakna.</p>
-    </div>
+    .start-button:hover {
+      transform: scale(1.05);
+      background-color: #59392d;
+    }
 
-    <div class="content">
-      <div class="quote">"Kopi memang pahit tapi itu adalah cara kami merasakan kehidupan, satu tegukan dalam ketenangan."</div>
+    /* Pop-up box styling */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fffdf7;
+      padding: 30px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      z-index: 999;
+      text-align: center;
+      font-size: 1.2em;
+    }
 
-      <p>TerraSafaria adalah tempat di mana kopi bertemu dengan sistem, estetika, dan kehangatan. Kami meracik bukan hanya rasa, tapi juga pengalaman yang meninggalkan jejak.</p>
+    .popup.show {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
 
-      <a href="menu.html" class="menu-button">Lihat Menu</a>
-    </div>
-  </body>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translate(-50%, -60%); }
+      to { opacity: 1; transform: translate(-50%, -50%); }
+    }
+
+    .popup-close {
+      margin-top: 20px;
+      background-color: #6f4a37;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1>TerraSafaria Coffee</h1>
+    <p>Rasa yang bernyawa, kopi yang bermakna.</p>
+  </div>
+
+  <div class="content">
+    <div class="quote">"Kopi memang pahit tapi itu adalah cara kami merasakan kehidupan, satu tegukan dalam ketenangan."</div>
+
+    <p>TerraSafaria adalah tempat di mana kopi bertemu sistem, estetika, dan kehangatan. Kami meracik bukan hanya rasa, tapi juga pengalaman yang meninggalkan jejak.</p>
+
+    <button class="start-button" onclick="showPopup()">Start</button>
+  </div>
+
+  <div id="popupBox" class="popup">
+    ☕ Selamat datang di pengalaman penuh rasa bersama TerraSafaria!
+    <br /><button class="popup-close" onclick="hidePopup()">Tutup</button>
+  </div>
+
+  <script>
+    function showPopup() {
+      document.getElementById('popupBox').classList.add('show');
+    }
+
+    function hidePopup() {
+      document.getElementById('popupBox').classList.remove('show');
+    }
+  </script>
+</body>
 </html>
