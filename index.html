@@ -12,7 +12,7 @@
     }
 
     .hero {
-      background-image: url('banner-web.jpg'); /* Banner café lo */
+      background-image: url('banner-web.jpg');
       background-size: cover;
       background-position: center;
       height: 460px;
@@ -26,20 +26,20 @@
     }
 
     .hero img {
-      width: 110px;
+      width: 100px;
       height: auto;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
       filter: drop-shadow(0 0 5px rgba(0,0,0,0.4));
     }
 
     .hero h1 {
-      font-size: 3.2em;
+      font-size: 3em;
       margin: 0;
     }
 
     .hero p {
       font-size: 1.2em;
-      margin-top: 8px;
+      margin-top: 10px;
     }
 
     .content {
@@ -110,6 +110,38 @@
       from { opacity: 0; transform: translate(-50%, -60%); }
       to { opacity: 1; transform: translate(-50%, -50%); }
     }
+
+    .slide-section {
+      position: absolute;
+      top: 100vh;
+      left: 0;
+      width: 100%;
+      background-color: #fffdf7;
+      padding: 60px 20px;
+      box-sizing: border-box;
+      opacity: 0;
+      transform: translateY(100px);
+      transition: all 1s ease;
+      text-align: center;
+    }
+
+    .slide-section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .slide-section h2 {
+      color: #6f4a37;
+      margin-bottom: 20px;
+    }
+
+    .slide-section p {
+      max-width: 800px;
+      margin: auto;
+      font-size: 1em;
+      line-height: 1.6;
+      color: #3e2f21;
+    }
   </style>
 </head>
 <body>
@@ -130,7 +162,16 @@
     <br /><button onclick="goToSlide()">Next</button>
   </div>
 
-  <!-- Slide storytelling nanti bisa ditambahkan di sini -->
+  <div id="slide2" class="slide-section">
+    <h2>📘 Biografi TerraSafaria</h2>
+    <p>
+      Nama <strong>TerraSafaria</strong> berasal dari dua kata: <em>“Terra”</em> yang berarti bumi dalam bahasa Latin, dan <em>“Safaria”</em> dari kata Safari dalam bahasa Swahili, yang berarti perjalanan. Filosofi di balik nama ini adalah menghadirkan sebuah petualangan rasa dan ketenangan di lokasi yang tersembunyi namun kaya pengalaman. <br><br>
+      Berlokasi di Kampung Bubulak RT 004/RW 004, Masjid Attaqwa, Jl. H. Sanip 2, Bojong Kulur, Gunung Putri, Bogor—TerraSafaria dibangun di tengah suasana kampung dan mengusung konsep <strong>Tradisional Naturalis</strong> untuk menghadirkan nuansa syahdu dan romantis. Pengunjung bisa menikmati berbagai sajian, mulai dari kopi khas hingga makanan tradisional Indonesia dan Western. <br><br>
+      Awalnya, tempat ini adalah <strong>Gallery Vivarium pribadi</strong>, namun atas saran banyak pihak, kami mengubahnya menjadi ruang diskusi dan bersantai yang membawa sepotong keindahan alam ke tengah kota. <br><br>
+      Terinspirasi oleh banyaknya orang yang merasa penat karena rutinitas, TerraSafaria hadir untuk memberikan pelarian. Kami percaya: <em>“Alam selalu punya caranya sendiri untuk membuat manusia merasa tenang dan nyaman—dan membuat mereka yang menghampirinya merasa lega dan lepas, walaupun hanya untuk sesaat.”</em>
+    </p>
+  </div>
+
   <script>
     function showPopup() {
       document.getElementById('popupBox').classList.add('show');
@@ -138,7 +179,8 @@
 
     function goToSlide() {
       document.getElementById('popupBox').style.display = 'none';
-      // Tambah animasi slide storytelling kalau udah siap
+      document.getElementById('slide2').classList.add('show');
+      window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
     }
   </script>
 </body>
